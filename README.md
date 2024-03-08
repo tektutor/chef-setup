@@ -36,6 +36,7 @@ Expected output
 We need to create an Administrative user
 ```
 sudo chef-server-ctl user-create jegan Jeganathan Swaminathan jegan@tektutor.org admin@123 --filename jegan.pem
+sudo chef-server-ctl grant-server-admin-permissions jegan
 sudo chef-server-ctl org-create tektutor 'TekTutor' --association_user jegan --filename tektutor-validator.pem
 sudo chef-server-ctl org-show
 ```
