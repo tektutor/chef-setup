@@ -77,7 +77,7 @@ Integrating Chef Workstation with Chef Infra Server
 knife configure
 
 cd /root/.chef
-scp jegan@rhel-chef-server:/home/jegan/jegan.pem .
+scp root@rhel-chef-server:/root/jegan.pem .
 
 knife ssl fetch
 knife ssl check
