@@ -75,6 +75,10 @@ ruby --version
 Integrating Chef Workstation with Chef Infra Server
 ```
 knife configure
+
+cd /root/.chef
+scp jegan@rhel-chef-server:/home/jegan/jegan.pem .
+
 knife ssl fetch
 knife ssl check
 knife client list
