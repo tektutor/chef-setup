@@ -74,8 +74,11 @@ ruby --version
 Integrating Chef Workstation with Chef Infra Server
 ```
 knife configure
-
+knife ssl fetch
+knife ssl check
+knife client list
 ```
 
 Expected output
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/3f45b02e-0719-488b-b718-c05575723b34)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/2ec9a93c-1e52-4b5a-b5fc-6435375f6d06)
