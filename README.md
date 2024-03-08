@@ -22,6 +22,8 @@ wget https://packages.chef.io/files/stable/chef-server/15.9.20/el/8/chef-server-
 rpm -ivh ./chef-server-core-15.9.20-1.el8.x86_64.rpm
 chef-server-ctl reconfigure
 chef-server-ctl reconfigure
+
+chef-server-ctl status
 ```
 
 Expected output
@@ -29,3 +31,4 @@ Expected output
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/3998a733-47db-4b31-8d43-f957ec7db831)
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/9589c4a6-e4a1-4ffb-8ea5-ecbb012740f1)
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/d5916bcd-e50a-44f1-9cd8-9009cbdcb614)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/b27957d2-7453-4335-8462-87b73d799d09)
