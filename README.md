@@ -1,20 +1,43 @@
 # Chef setup
 
-We would need atleast 3 virtual machines with RHEL 8.9 64-bit OS
+I used 6 Virtual machines with the below configuration
 - Quad Core Processor
 - Atleast 8GB RAM
 - Atleast 20GB HDD/SSD
+
+![image](https://github.com/tektutor/chef-setup/assets/12674043/ea96b8fc-5f2d-4d4c-85ec-ce5b40bd0faa)
 
 I would recommend to name the hostname as shown below to easily identify which VM hosts Chef Server, Workstation and Nodes.
 
 Virtual Machine - 1 
 - hostname ( rhel-chef-server )
-
+- /etc/hosts
+![image](https://github.com/tektutor/chef-setup/assets/12674043/d729e9fa-25f1-4009-9629-27fee0ac3a3c)
+ 
 Virtual Machine - 2
 - hostname ( rhel-chef-workstation )
+- /etc/hosts
+![image](https://github.com/tektutor/chef-setup/assets/12674043/e450b0f1-b282-4975-87a8-6998c5ddb719)
 
 Virtual Machine - 3
 - hostname ( rhel-chef-node )
+- /etc/hosts
+![image](https://github.com/tektutor/chef-setup/assets/12674043/8fae82c7-1b5d-4b24-a22e-f1c4f6678476)
+
+Virtual Machine - 4
+- hostname ( rhel-chef-automate )
+- /etc/hosts
+![image](https://github.com/tektutor/chef-setup/assets/12674043/4bfbe0ab-5a17-4c8a-ae3d-f614c6dfa57d)
+
+Virtual Machine - 5
+- hostname ( ubuntu-chef-node )
+- /etc/hosts
+![image](https://github.com/tektutor/chef-setup/assets/12674043/22b5064c-497a-4266-893a-0262c0a576ac)
+
+Virtual Machine - 6
+- hostname ( windows-chef-node )
+- C:/windows/system32/drivers/etc/hosts
+![image](https://github.com/tektutor/chef-setup/assets/12674043/2742b9f6-bf92-4a4c-a4e2-b59a57018bbd)
 
 ## Installing Chef Server in RHEL 8.9
 ```
