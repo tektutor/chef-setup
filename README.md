@@ -480,3 +480,10 @@ HpEDa0+o98reEYEVO3Cxx+OxtMmD/KZf23RzjPqZFKBYyekp/XQ=
 
 [root@rhel-chef-automate ~]#  
 </pre>
+
+We need to updated the config.toml before we deploy the Chef automate as we are using a separate stand-alone Chef Infra Server on a different machine.
+```
+[erchef.v1.sys.data_collector]
+  enabled = false
+```
+![image](https://github.com/tektutor/chef-setup/assets/12674043/32b7bccb-4bde-4f20-989f-c028577e7705)
