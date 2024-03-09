@@ -510,6 +510,22 @@ setenforce 0
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/e7afcd2d-4964-4dae-8238-3c61ba043ee2)
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/c4ed964e-b908-43b2-9cf1-9408a17c3e30)
 
+We need to configure firewall on the Chef Automate Server to open up https port
+```
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-all
+```
+
+We should be able to access the Chef Automate Webconsole/Dashboard
+```
+https://rhel-chef-automate
+```
+![image](https://github.com/tektutor/chef-setup/assets/12674043/1304900c-587d-4cb2-a06c-e5a81fc5ece4)
+
+![image](https://github.com/tektutor/chef-setup/assets/12674043/51604607-ef53-4271-ac04-3c5618e42a5f)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/a7585f6f-8219-4026-81e5-897b460154ae)
+
 
 ## Configuring Chef Infra Server to send data to external Chef Automate Server
 We need to create a patch.toml configuration file as shown below
