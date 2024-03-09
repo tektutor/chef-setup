@@ -348,4 +348,135 @@ password - admin@123
 </pre>
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/028e4cc1-0171-4567-97e9-d95a4df62c5a)
 
+## Installing Chef Automate in RHEL v8.9
+```
+curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+sudo ./chef-automate init-config
 
+```
+
+Expected output
+<pre>
+root@tektutor.org:~# ssh rhel-chef-automate
+root@rhel-chef-automate's password: 
+Activate the web console with: systemctl enable --now cockpit.socket
+
+Register this system with Red Hat Insights: insights-client --register
+Create an account or view all your systems at https://red.ht/insights-dashboard
+Last login: Sat Mar  9 06:35:26 2024 from 192.168.1.104
+[root@rhel-chef-automate ~]# pwd
+/root
+[root@rhel-chef-automate ~]# curl https://packages.chef.io/files/current/latest/chef-automate-cli/chef-automate_linux_amd64.zip | gunzip - > chef-automate && chmod +x chef-automate
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 13.2M  100 13.2M    0     0  2595k      0  0:00:05  0:00:05 --:--:-- 3394k
+[root@rhel-chef-automate ~]# ls
+anaconda-ks.cfg  chef-automate  initial-setup-ks.cfg
+[root@rhel-chef-automate ~]# ./chef-automate init-config
+Success: Config written to config.toml
+Automate Load Balancer fqdn set to [rhel-chef-automate]
+When Automate is deployed you will access https://rhel-chef-automate to see the dashboard.
+If this is not a routable address please update the fqdn appropriately before deploying.
+[root@rhel-chef-automate ~]# cat config.toml 
+
+# This is a default Chef Automate configuration file. You can run
+# 'chef-automate deploy' with this config file and it should
+# successfully create a new Chef Automate instance with default settings.
+
+[global.v1]
+  # The external fully qualified domain name.
+  # When the application is deployed you should be able to access 'https://<fqdn>/'
+  # to login.
+  fqdn = "rhel-chef-automate"
+
+  # TLS Certificates for External-Facing Services
+    # The following TLS certificate and RSA public key were
+    # automatically generated. The certificate is a self-signed
+    # certificate and will likely produce security warnings when you
+    # visit Chef Automate in your web browser. We recommend using a
+    # certificate signed by a certificate authority you trust.
+  [[global.v1.frontend_tls]]
+    # The TLS certificate for the load balancer frontend.
+    cert = """-----BEGIN CERTIFICATE-----
+MIIDvzCCAqegAwIBAgIQOuqjSNz2llcXKyrJEBEZnzANBgkqhkiG9w0BAQsFADBa
+MQswCQYDVQQGEwJVUzEWMBQGA1UEChMNQ2hlZiBTb2Z0d2FyZTEWMBQGA1UECxMN
+Q2hlZiBBdXRvbWF0ZTEbMBkGA1UEAxMScmhlbC1jaGVmLWF1dG9tYXRlMB4XDTI0
+MDMwOTAxNDEzMloXDTM0MDMwNzAxNDEzMlowWjELMAkGA1UEBhMCVVMxFjAUBgNV
+BAoTDUNoZWYgU29mdHdhcmUxFjAUBgNVBAsTDUNoZWYgQXV0b21hdGUxGzAZBgNV
+BAMTEnJoZWwtY2hlZi1hdXRvbWF0ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBAMJMcmhaxJojvJjBMPsZ/11yPSO8ZYsZ0BlL3oR4eB7iO1aMZspSzd12
+MXcS+J7hLcGIy2WbwONpDdHbKzwpwb5uoOA8Bo0GEGtt8Tn9EcmIKphgF2y/zsTo
+XB8EwMbI4AiJ2tkQgXfdo/BoFMF8LqlJz3AWj5dt13XXx9xV19c0H4cPE1S+W746
+Ejx9td3ImKN8JH3wx635NwbIMuMSIcZ3Mxjkw+57KbGcr+wAHUiMwc4VhABXrR7z
+s6HG++/vRLO8WDVDXa3B0zh+0Vzb5mhfZ9VJUKSgpji4vTgvJX5QV8zsjugP+GAH
+XRa51RzH9pdpGr3Xk/jcBueYVdGrI2kCAwEAAaOBgDB+MA4GA1UdDwEB/wQEAwIC
+pDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH/BAUwAwEB
+/zAdBgNVHQ4EFgQUb7zney1p3rHTpzKIxS1YGuNbZIMwHQYDVR0RBBYwFIIScmhl
+bC1jaGVmLWF1dG9tYXRlMA0GCSqGSIb3DQEBCwUAA4IBAQBcr+zAWH4orJ5KPj/N
++2Wtm+b6tczh8i4iVLv+okEdD5LjhFc7bOecl6aoQ4SC2dXQYGv2I4XM4YaJGErP
+ciY3m4vvrgBtlSfquqqgMO51C35UI83BvVAkKW2xFvb1H/OFcLUvb/XbKPC+aSn2
+D9zFTCP5gDfbpPKdFK2E3IgwvRpQ3okalszaERLUIk9f6nPYju/3WBwZqNQZv74b
+CwOjdXmsPdv0zYd35H2ws4BQ+7VK+jsaTbT1c740mVkAwJQBwHo7P/5b+jAqV9qx
+MIFXqwRaMrYapmN/lxhLlB4YgPR6hX7VeVh19zwgyDwOzGFJ4yiMfQjlJAG5Ct5s
+o4M6
+-----END CERTIFICATE-----
+"""
+
+    # The TLS RSA key for the load balancer frontend.
+    key = """-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAwkxyaFrEmiO8mMEw+xn/XXI9I7xlixnQGUvehHh4HuI7Voxm
+ylLN3XYxdxL4nuEtwYjLZZvA42kN0dsrPCnBvm6g4DwGjQYQa23xOf0RyYgqmGAX
+bL/OxOhcHwTAxsjgCIna2RCBd92j8GgUwXwuqUnPcBaPl23XddfH3FXX1zQfhw8T
+VL5bvjoSPH213ciYo3wkffDHrfk3Bsgy4xIhxnczGOTD7nspsZyv7AAdSIzBzhWE
+AFetHvOzocb77+9Es7xYNUNdrcHTOH7RXNvmaF9n1UlQpKCmOLi9OC8lflBXzOyO
+6A/4YAddFrnVHMf2l2kavdeT+NwG55hV0asjaQIDAQABAoIBAADgp4OhJVIs5yUp
+ejcoHuclJPGMYEkIjNAQb6jZgnFhRDNX3v768MMXTZHkHAtbqQE+xOxoj653QwC3
+pLJY3e8mQMPCgaURafGSRYylf/cRDmAxzulG1IA/LGtXcidzsM9ZEAv67xrDfYIQ
+dkeJcAyDsNQoxe1BKb/2gYiVOqxWJel/br0qUDad98mkHC7ZQ5XgEiqcoPWS9NWY
+cXKPUQhYdpnkFZpHuIZU0d8mSPQHlSZ/niTzIekaNNrzwF9CJbYInWFlTBBoeCsw
+f1A4EAWC19m3dOyY4YuloiAWeDMx9JuOjZNYxT6Obcmitd+y65gL2KNduBVAw6RM
+xK+r0AECgYEA0SvVBmil8CaEtZFhD4ynklBDSPJlpJS//WmULDz/ZK7WPWSGXP2m
+FIqcaddvOgPx4tisu0Z/YBWImcDyXn0VUc3qLhR2QvnLpWl7OejuXYlbaA0n5nXM
+vbNSq9wPV6LiWqmoFvhQTX6ggqAqrIfTdJcbwd3DV6wS2FO1lNpgDUECgYEA7cw5
+2INmy6cehoUlc1NWRVb6jR3h/plL5hwZLZCn2Q9qhPc8Ptd4tfjdgOrqvqvs4J5C
+LI86JseWYYZcHk4T69KDGo0wKoaG+jY4x0QJAJdZTt18iUV7kZPyX3Bd01YbIeJD
+fTZeSpkJJoP3Xdl1HpIVZ2T1k6zrAK807Y8UBCkCgYAMBrEgxTOFMzG+HrWt5zBb
+QTIdJ5Kge8zuDPvv7zHf4A2BSh5PimXaGH4Vt8U1WLS3ji2gNtVr+ND5xhYpSJfJ
+NEWakKKcBzCmOgJTugi6aANRYDBDF9LFtWGzb9uR9lN9UvPPHke/rOAdoofRk52c
+vnNiGhX5HHOY7HcsL8IGAQKBgEm2Q7wcx1GbpTe3sCs2iwiFdLcnqzU7ma5jyV45
+d/4t7Cv5Y4BrVGy8DxV2PHwMWSorhIHBiBobRj9G4ek29K/mGmOxnlugRdjr09/Y
+9B1tzO5Ic+EtW6d9v+TbtQncqB5xv8/heYsQMyjwQU6jKM3oJKBfSEyVjmcw6Gw3
+LNI5AoGAA1UNDx0drB6yONu1Bc6tjzouVHzJZJ5dvzUjMGzxj3zM3/nnQdRunHl4
+5cxLmasfceAhfNiZL6lLSokB4QvGo22dLfG2nuS0aNGywUNe0ieYtJQWh5C+TGNZ
+HpEDa0+o98reEYEVO3Cxx+OxtMmD/KZf23RzjPqZFKBYyekp/XQ=
+-----END RSA PRIVATE KEY-----
+"""
+
+
+# Deployment service configuration.
+[deployment.v1]
+  [deployment.v1.svc]
+    # Habitat channel to install hartifact from.
+    # Can be 'dev', 'current', or 'acceptance'
+    channel = "current"
+    upgrade_strategy = "at-once"
+    deployment_type = "local"
+
+# License Control service configuration.
+[license_control.v1]
+  [license_control.v1.svc]
+    # The Chef Software provided license token required to run Chef Automate.
+    # This can also be set with the "chef-automate license apply" command.
+    license = ""
+
+# Chef Automate services can be configured to better meet the needs of
+# your particular installation. For details see:
+#
+# https://automate.chef.io/docs/configuration/
+#
+
+[opensearch.v1.sys.runtime]
+  heapsize = "4g"
+
+[root@rhel-chef-automate ~]#  
+</pre>
