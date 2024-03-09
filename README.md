@@ -335,3 +335,17 @@ chef-server-ctl reconfigure
 chef-manage-ctl reconfigure
 ```
 
+Accessing the Chef Server Management console
+
+![image](https://github.com/tektutor/chef-setup/assets/12674043/1907af53-843b-4784-8715-67531dcba3a0)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/5b24537f-e6be-4e09-99cf-3643e54b5fc2)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/9b75076a-1c92-44e6-8d7c-5a42f7d6db9f)
+
+Login Credentials ( The user we created with chef-server-ctl and associated with tektutor organization )
+<pre>
+username - jegan
+password - admin@123
+</pre>
+![image](https://github.com/tektutor/chef-setup/assets/12674043/028e4cc1-0171-4567-97e9-d95a4df62c5a)
+
+
