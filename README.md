@@ -499,6 +499,10 @@ Expected output
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/8d5b734e-2614-41d4-aa3b-b59030f22748)
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/24a1fdb2-ae12-4834-90f0-401b95f6c9a3)
 
+Let's configure selinux to permissive
+![image](https://github.com/tektutor/chef-setup/assets/12674043/e6843189-279c-43c0-94d5-d83237710b70)
+
+
 ## Configuring Chef Infra Server to send data to external Chef Automate Server
 We need to create a patch.toml configuration file as shown below
 ```
