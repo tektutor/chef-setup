@@ -313,6 +313,18 @@ Bootstrapping ubuntu-chef-node
  [ubuntu-chef-node]  
 </pre>
 
+## Node list ( From rhel-chef-workstation machine )
+Once all the chef nodes are bootstrapped it would look as shown below
+```
+knife node list
+```
+Expected output
+<pre>
+[root@rhel-chef-workstation ~]# knife node list
+rhel-chef-node
+ubuntu-chef-node
+windows-chef-node 
+</pre>
 
 ## Enabling Chef Server Management Console ( Do this on the Chef Server machine )
 ```
@@ -322,3 +334,4 @@ chef-server-ctl reconfigure
 
 chef-manage-ctl reconfigure
 ```
+
