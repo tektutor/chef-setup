@@ -501,7 +501,9 @@ Expected output
 
 Let's configure selinux to permissive
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/e6843189-279c-43c0-94d5-d83237710b70)
-
+```
+setenforce 0
+```
 
 ## Configuring Chef Infra Server to send data to external Chef Automate Server
 We need to create a patch.toml configuration file as shown below
