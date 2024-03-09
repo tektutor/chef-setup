@@ -527,6 +527,26 @@ https://rhel-chef-automate
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/a7585f6f-8219-4026-81e5-897b460154ae)
 
 
+We need to patch the Chef Automate server with the below patch.toml file
+<pre>
+[global.v1.external.automate]
+enable = true
+node = "https://rhel-chef-automate"
+[global.v1.external.automate.auth]
+token = "<data-collector token>"
+[global.v1.external.automate.ssl]
+server_name = "<server name from the automate server ssl cert>"
+root_cert = """<pem format root CA cert>
+"""
+[auth_n.v1.sys.service]
+# It is fine to use an A2 data collector token.
+a1_data_collector_token = "<data-collector token>"
+[erchef.v1.sys.data_collector]
+enabled = true 
+</pre>
+
+![image](https://github.com/tektutor/chef-setup/assets/12674043/69531305-785d-4bfe-9e8d-a27904451dd1)
+
 ## Configuring Chef Infra Server to send data to external Chef Automate Server
 We need to create a patch.toml configuration file as shown below
 ```
