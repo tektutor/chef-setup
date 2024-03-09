@@ -135,47 +135,6 @@ version	18.4.2
  [rhel-chef-node] ########################################
  [rhel-chef-node] Updating / installing...
  [rhel-chef-node] chef-18.4.2-1.el8                     
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
-
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
-^[ [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
-^[ [rhel-chef-node] #
- [rhel-chef-node] #
- [rhel-chef-node] #
  [rhel-chef-node] Thank you for installing Chef Infra Client! For help getting started visit https://learn.chef.io
  [rhel-chef-node] Starting the first Chef Infra Client Client run...
  [rhel-chef-node] +---------------------------------------------+
@@ -264,4 +223,69 @@ bash: Connecting: command not found...
 > Running handlers:
 > Running handlers complete
 > Infra Phase complete, 0/0 resources updated in 02 seconds  
+</pre>
+
+At this point, we should see the rhel-chef-node connected with the server
+```
+knife node list
+```
+
+Expected output
+<pre>
+[root@rhel-chef-workstation ~]# knife node list
+rhel-chef-node 
+</pre>
+
+
+## Bootstrapping ubuntu-chef-node
+```
+knife bootstrap ubuntu-chef-node --ssh-user root --ssh-password root --node-name ubuntu-chef-node
+```
+
+Expected output
+<pre>
+[root@rhel-chef-workstation ~]# knife bootstrap ubuntu-chef-node --ssh-user root --ssh-password root --node-name ubuntu-chef-node
+--ssh-user: This flag is deprecated. Use -U/--connection-user instead.
+--ssh-password: This flag is deprecated. Use -P/--connection-password instead.
+Connecting to ubuntu-chef-node using ssh
+The authenticity of host 'ubuntu-chef-node (192.168.1.64)' can't be established.
+fingerprint is SHA256:tgBrKcHWucpZGcGdT7y4BxyV5aV25YCGbuDvDzjn41Q.
+
+Are you sure you want to continue connecting
+? (Y/N) Y
+Connecting to ubuntu-chef-node using ssh
+Creating new client for ubuntu-chef-node
+Creating new node for ubuntu-chef-node
+Bootstrapping ubuntu-chef-node
+ [ubuntu-chef-node] -----> Existing Chef Infra Client installation detected
+ [ubuntu-chef-node] Starting the first Chef Infra Client Client run...
+ [ubuntu-chef-node] Chef Infra Client, version 18.4.2
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Patents: https://www.chef.io/patents
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Infra Phase starting
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Resolving cookbooks for run list: []
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Synchronizing cookbooks:
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Installing cookbook gem dependencies:
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Compiling cookbooks...
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Loading Chef InSpec profile files:
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Loading Chef InSpec input files:
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Loading Chef InSpec waiver files:
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] [2024-03-09T05:55:39+05:30] WARN: Node ubuntu-chef-node has an empty run list.
+ [ubuntu-chef-node] Converging 0 resources
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Running handlers:
+ [ubuntu-chef-node] 
+ [ubuntu-chef-node] Running handlers complete
+ [ubuntu-chef-node] Infra Phase complete, 0/0 resources updated in 02 seconds
+ [ubuntu-chef-node]  
 </pre>
