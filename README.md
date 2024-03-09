@@ -289,3 +289,13 @@ Bootstrapping ubuntu-chef-node
  [ubuntu-chef-node] Infra Phase complete, 0/0 resources updated in 02 seconds
  [ubuntu-chef-node]  
 </pre>
+
+
+## Enabling Chef Server Management Console ( Do this on the Chef Server machine )
+```
+chef-server-ctl install chef-manage
+
+chef-server-ctl reconfigure
+
+chef-manage-ctl reconfigure
+```
