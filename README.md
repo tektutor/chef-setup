@@ -12,27 +12,27 @@ I would recommend to name the hostname as shown below to easily identify which V
 Virtual Machine - 1 
 - hostname ( rhel-chef-server )
 - /etc/hosts
-![image](https://github.com/tektutor/chef-setup/assets/12674043/d729e9fa-25f1-4009-9629-27fee0ac3a3c)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/901b3575-e096-40be-8a06-a6a412433fdb)
  
 Virtual Machine - 2
 - hostname ( rhel-chef-workstation )
 - /etc/hosts
-![image](https://github.com/tektutor/chef-setup/assets/12674043/e450b0f1-b282-4975-87a8-6998c5ddb719)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/36d76d80-a8f7-44eb-ba79-168a65bd8bfa)
 
 Virtual Machine - 3
 - hostname ( rhel-chef-node )
 - /etc/hosts
-![image](https://github.com/tektutor/chef-setup/assets/12674043/8fae82c7-1b5d-4b24-a22e-f1c4f6678476)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/cf8eb2c0-9401-45f9-b8d9-da07d22a71b4)
 
 Virtual Machine - 4
 - hostname ( rhel-chef-automate )
 - /etc/hosts
-![image](https://github.com/tektutor/chef-setup/assets/12674043/4bfbe0ab-5a17-4c8a-ae3d-f614c6dfa57d)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/63ccae12-e71f-4aa4-ad4d-f71dd6731b09)
 
 Virtual Machine - 5
 - hostname ( ubuntu-chef-node )
 - /etc/hosts
-![image](https://github.com/tektutor/chef-setup/assets/12674043/22b5064c-497a-4266-893a-0262c0a576ac)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/b841925f-2fb0-48c0-bd04-eea3c41c4d95)
 
 Virtual Machine - 6
 - hostname ( windows-chef-node )
