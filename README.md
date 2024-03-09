@@ -487,3 +487,14 @@ We need to updated the config.toml before we deploy the Chef automate as we are 
   enabled = false
 ```
 ![image](https://github.com/tektutor/chef-setup/assets/12674043/32b7bccb-4bde-4f20-989f-c028577e7705)
+
+
+Let's deploy the chef automate server with the updated config.toml file
+```
+sudo chef-automate deploy --product infra-server config.toml
+```
+
+Expected output
+![image](https://github.com/tektutor/chef-setup/assets/12674043/b1dc3897-1fe7-4a70-9ce6-40193871971c)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/8d5b734e-2614-41d4-aa3b-b59030f22748)
+![image](https://github.com/tektutor/chef-setup/assets/12674043/24a1fdb2-ae12-4834-90f0-401b95f6c9a3)
